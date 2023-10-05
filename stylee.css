@@ -1,0 +1,14 @@
+
+.jumbotron{
+    padding-top: 6rem;
+    background-color: #a2b3ce;
+    background-image: url('foto.jpg');
+}
+
+#projects{
+    background-color: #e2edff;
+}
+
+section{
+    padding-top: 5rem;
+}
