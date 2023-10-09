@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator Sederhana</title>
+  </head>
+  <body>
+    <!-- Awal Judul-->
+    <h1 class="judul">Calculator JavaScript</h1>
+    <!-- Akhir Judul-->
+
+    <!-- Awal Table-->
+    <table border="1">
+    
+    <!-- Awal Form -->
+    <form id="kalkulato-form" class="kalkulator">
+      <label for="bilangan 1" class="label 1">Bilangan Pertama :</label>
+      <input type="number" id="bilangan 1" required class="bil1" /> <br />
+
+      <label for="bilangan 2" class="label 2">Bilangan Kedua :</label>
+      <input type="number" id="bilangan 2" required class="bil2" /> <br />
+
+      <label for="pilihan" class="label 3">Pilih Operator :</label>
+      <select id="pilihan" required class="pil">
+        <option value="+">Penjumlahan</option>
+        <option value="-">Pengurangan</option>
+        <option value="*">Perkalian</option>
+        <option value="/">Pembagian</option>
+      </select>
+      <br />
+
+      <input type="submit" value="Hitung" class="tombol" />
+
+      <input type="reset" value="Reset" class="tombol" onclick="resethasil()" />
+
+      <p>Hasil : <span id="hasil"></span></p>
+      </table>
+    </form>
+    <!-- Akhir Form -->
+
+    <!-- Awal Script -->
+    <script>
+      // Function to perform calculations
+      function calculate() {
+        // Get input values
+        var bil1 = parseFloat(document.getElementById('bilangan 1').value);
+        var bil2 = parseFloat(document.getElementById('bilangan 2').value);
+        var operator = document.getElementById('pilihan').value;
+
+        // Perform the selected operation
+        var result;
+        switch (operator) {
+          case '+':
+            result = bil1 + bil2;
+            break;
+          case '-':
+            result = bil1 - bil2;
+            break;
+          case '*':
+            result = bil1 * bil2;
+            break;
+          case '/':
+            if (bil2 !== 0) {
+              result = bil1 / bil2;
+            } else {
+              alert('Error: Division by zero!');
+              return;
+            }
+            break;
+          default:
+            alert('Invalid operator');
+            return;
+        }
+
+        // Display the result
+        document.getElementById('hasil').textContent = result;
+      }
+
+      // Function to reset the form
+      function resethasil() {
+        document.getElementById('hasil').textContent = '';
+      }
+
+      // Attach the calculate function to the form's submit event
+      document.getElementById('kalkulato-form').addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent form submission
+        calculate(); // Call the calculate function
+      });
+    </script>
+    <!-- Akhir Script -->
+
+  </body>
+</html>
