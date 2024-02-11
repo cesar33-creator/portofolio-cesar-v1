@@ -1,5 +1,12 @@
 {
-    "rewrites": [
-        {"source": "/(.*)", "destination": "/portofolio.html"}
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/"
+        },
+        {
+            "src": "/test",
+            "dest": "/"
+        }
     ]
 }
